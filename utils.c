@@ -36,3 +36,17 @@ long    ft_atol(const char *str)
     }
     return(result * sign);
 }
+
+t_stack *ft_newstack(long n)
+{
+    t_stack *new_nbr;
+        
+    new_nbr = malloc(sizeof(t_stack));
+        if (!new_nbr)
+            return (NULL);
+    new_nbr->value = n;
+    new_nbr->index = 0;
+    new_nbr->next = NULL;
+    new_nbr->prev = NULL;
+    return(new_nbr);
+}
