@@ -15,7 +15,6 @@
 void    ft_error(void)
 {
 	write(2, "Error\n", 6);
-	return (0);
 }
 
 int is_valid_format(char **args, int start)
