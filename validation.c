@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-int	ft_error(void)
+void    ft_error(void)
 {
 	write(2, "Error\n", 6);
 	return (0);
@@ -34,7 +34,7 @@ int is_valid_format(char **args, int start)
             return (0);
         while (args[i][j])
         {
-            if (!isdigit(args[i][j]))
+            if (!ft_isdigit(args[i][j]))
                 return (0);
             j++;
         }

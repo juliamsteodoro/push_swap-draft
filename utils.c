@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/15 20:02:35 by marvin            #+#    #+#             */
-/*   Updated: 2026/06/15 20:02:35 by marvin           ###   ########.fr       */
+/*   Created: 2026/06/15 20:36:44 by marvin            #+#    #+#             */
+/*   Updated: 2026/06/15 20:36:44 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ long    ft_atol(const char *str)
     while (str[i]>= '0' && str[i] <= '9')
     {
         result = (result * 10) + (str[i] - '0');
+        if (result > 2147483648L) 
+            return (result * sign);
         i++;
     }
     return(result * sign);
