@@ -3,20 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nde-mace <nde-mace@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/03 19:50:00 by nde-mace          #+#    #+#             */
-/*   Updated: 2026/06/28 17:08:32 by nde-mace         ###   ########.fr       */
+/*   Updated: 2026/07/02 10:50:38 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
-#include "libft/libft.h"
-# include <stdio.h>
 
-int		*ft_valid(int argc, char **argv);
-double	ft_chaos(const int *numbers, int len);
+# include <stdlib.h>
+# include <unistd.h>
+
+# define INT_MAX 2147483647
+# define INT_MIN -2147483648
+
 typedef struct s_stack
 {
 	int				value;
@@ -24,32 +26,42 @@ typedef struct s_stack
 	struct s_stack	*next;
 	struct s_stack	*prev;
 }	t_stack;
-int		ft_error(void);
-int		ft_isnumber(char *str);
-int		ft_stack_len(t_stack **a);
+
+int		validar_argumentos(char **args, int start);
+int		is_valid_format(char **args, int start);
+int		has_duplicates(char **args, int start);
+long	ft_atol(const char *str);
+void	ft_error(void);
+
+char	**ft_split(char const *s, char c);
+void	free_split(char **args);
+int		ft_isdigit(int c);
+
+t_stack	*ft_newstack(long n);
+t_stack	*ft_init_stack(t_stack **a, int *numbers, int len_numbers);
+void	ft_free_stack(t_stack **a);
+int		ft_stack_size(t_stack *a);
+int		ft_is_sorted(t_stack *a);
+void	ft_index_stack(t_stack **a);
+
+void	pa(t_stack **a, t_stack **b);
+void	pb(t_stack **a, t_stack **b);
+
 void	sa(t_stack **a);
 void	sb(t_stack **b);
 void	ss(t_stack **a, t_stack **b);
+
 void	ra(t_stack **a);
 void	rb(t_stack **b);
 void	rr(t_stack **a, t_stack **b);
+
 void	rra(t_stack **a);
 void	rrb(t_stack **b);
 void	rrr(t_stack **a, t_stack **b);
-void	pb(t_stack **a, t_stack **b);
-void	pa(t_stack **a, t_stack **b);
-void	ft_sort_three(t_stack **a);
-double  ft_chaos(const int *numbers, int len);
-void	orchestration_sorting(t_stack **a, t_stack **b, int len, int *numbers);
-int		ft_find_min_pos(t_stack **a);
-void	ft_sort_small(t_stack **a, t_stack **b);
-int		ft_is_dup(int argc, char **argv);
-void	ft_index_stack(t_stack **a);
-long    ft_atol(const char *str);
-t_stack *ft_newstack(long n);
-void    ft_free_stack(t_stack **a);
-t_stack *ft_init_stack(t_stack **a, int *numbers, int len_numbers);
-int		ft_isdigit(int c);
 
+void	sort_two(t_stack **a);
+void	ft_sort_three(t_stack **a);
+void	sort_five(t_stack **a, t_stack **b);
+int		ft_find_min_pos(t_stack **a); 
 
 #endif
