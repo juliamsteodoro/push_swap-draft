@@ -1,14 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   utils_parsing.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/15 20:36:44 by marvin            #+#    #+#             */
-/*   Updated: 2026/06/15 20:36:44 by marvin           ###   ########.fr       */
+/*   Created: 2026/07/02 10:02:10 by marvin            #+#    #+#             */
+/*   Updated: 2026/07/02 10:02:10 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+void    ft_error(void)
+{
+	write(2, "Error\n", 6);
+}
 
 long    ft_atol(const char *str)
 {
@@ -35,18 +40,4 @@ long    ft_atol(const char *str)
         i++;
     }
     return(result * sign);
-}
-
-t_stack *ft_newstack(long n)
-{
-    t_stack *new_nbr;
-        
-    new_nbr = malloc(sizeof(t_stack));
-        if (!new_nbr)
-            return (NULL);
-    new_nbr->value = n;
-    new_nbr->index = 0;
-    new_nbr->next = NULL;
-    new_nbr->prev = NULL;
-    return(new_nbr);
 }

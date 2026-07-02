@@ -1,20 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   validation.c                                       :+:      :+:    :+:   */
+/*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/15 19:23:17 by marvin            #+#    #+#             */
-/*   Updated: 2026/06/15 19:23:17 by marvin           ###   ########.fr       */
+/*   Created: 2026/07/02 09:59:52 by marvin            #+#    #+#             */
+/*   Updated: 2026/07/02 09:59:52 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-void    ft_error(void)
+int validar_argumentos(char **args, int start)
 {
-	write(2, "Error\n", 6);
+    if (!is_valid_format(args, start))
+        return (0);
+    if (has_duplicates(args, start))
+        return (0);
+    return (1);
 }
 
 int is_valid_format(char **args, int start)
@@ -63,13 +65,4 @@ int has_duplicates(char **args, int start)
         i++;
     }
     return (0);
-}
-
-int validar_argumentos(char **args, int start)
-{
-    if (!is_valid_format(args, start))
-        return (0);
-    if (has_duplicates(args, start))
-        return (0);
-    return (1);
 }
