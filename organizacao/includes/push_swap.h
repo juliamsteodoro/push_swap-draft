@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nde-mace <nde-mace@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jumoreir <jumoreir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/03 19:50:00 by nde-mace          #+#    #+#             */
-/*   Updated: 2026/07/04 18:09:00 by nde-mace         ###   ########.fr       */
+/*   Updated: 2026/07/10 19:13:32 by jumoreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ typedef struct s_stack
 #define STRATEGY_COMPLEX 3
 #define STRATEGY_ADAPTIVE 4
 
-int		validar_argumentos(char **args, int start);
+int validate_arg(char **args, int start);
 int		is_valid_format(char **args, int start);
 int		has_duplicates(char **args, int start);
 long	ft_atol(const char *str);
