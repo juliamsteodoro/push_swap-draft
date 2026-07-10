@@ -14,47 +14,47 @@
 
 void	pa(t_stack **a, t_stack **b)
 {
-	t_stack *primeiro_b;
-	t_stack *primeiro_a;
-	t_stack *segundo_b;
+	t_stack *first_b;
+	t_stack *first_a;
+	t_stack *second_b;
 
-	primeiro_b = *b;
-    if (!primeiro_b)
+	first_b = *b;
+    if (!first_b)
         return;
-    segundo_b = primeiro_b->next;
-    primeiro_a = *a;
-    *b = segundo_b;
-    if (segundo_b != NULL)
-        segundo_b->prev = NULL;
-    if(primeiro_a != NULL)
-        primeiro_a->prev = primeiro_b;
+    second_b = first_b->next;
+    first_a = *a;
+    *b = second_b;
+    if (second_b != NULL)
+        second_b->prev = NULL;
+    if(first_a != NULL)
+        first_a->prev = first_b;
 
-    primeiro_b->next = primeiro_a;
-    primeiro_b->prev = NULL;
-    *a = primeiro_b;
+    first_b->next = first_a;
+    first_b->prev = NULL;
+    *a = first_b;
     write(1, "pa\n", 3);
 }
 
 void	pb(t_stack **a, t_stack **b)
 {
-	t_stack *primeiro_a;
-	t_stack *primeiro_b;
-	t_stack *segundo_a;
+	t_stack *first_a;
+	t_stack *first_b;
+	t_stack *second_a;
 
-	primeiro_a = *a;
-    if (!primeiro_a)
+	first_a = *a;
+    if (!first_a)
         return;
-    segundo_a = primeiro_a->next;
-    primeiro_b = *b;
-    *a = segundo_a;
-    if (segundo_a != NULL)
-        segundo_a->prev = NULL;
-    if(primeiro_b != NULL)
-        primeiro_b->prev = primeiro_a;
+    second_a = first_a->next;
+    first_b = *b;
+    *a = second_a;
+    if (second_a != NULL)
+        second_a->prev = NULL;
+    if(first_b != NULL)
+        first_b->prev = first_a;
 
-    primeiro_a->next = primeiro_b;
-    primeiro_a->prev = NULL;
-    *b = primeiro_a;
+    first_a->next = first_b;
+    first_a->prev = NULL;
+    *b = first_a;
     write(1, "pb\n", 3);
 
 }

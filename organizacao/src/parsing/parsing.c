@@ -17,7 +17,7 @@ int ft_isdigit(int c)
     return (c >= '0' && c <= '9');
 }
 
-int validar_argumentos(char **args, int start)
+int validate_arg(char **args, int start)
 {
     if (!is_valid_format(args, start))
         return (0);
@@ -30,7 +30,7 @@ int is_valid_format(char **args, int start)
 {
     int i;
     int j;
-    long valor;
+    long value;
 
     i = start;
     while (args[i] != NULL)
@@ -46,8 +46,8 @@ int is_valid_format(char **args, int start)
                 return (0);
             j++;
         }
-        valor = ft_atol(args[i]);
-        if (valor > 2147483647 || valor < -2147483648)
+        value = ft_atol(args[i]);
+        if (value > 2147483647 || value < -2147483648)
             return (0);
         i++;
     }

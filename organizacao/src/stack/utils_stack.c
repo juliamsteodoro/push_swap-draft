@@ -47,24 +47,24 @@ int ft_is_sorted(t_stack *a)
 
 void	ft_index_stack(t_stack **a)
 {	
-	t_stack *no_atual;
-	t_stack	*segundo;
-	int		contador;
+	t_stack *current_node;
+	t_stack	*second;
+	int		counting;
 	
-	no_atual = *a;
-	while(no_atual != NULL)
+	current_node = *a;
+	while(current_node != NULL)
 	{
-		contador = 0;
-		segundo = *a;
-		while(segundo != NULL)
+		counting = 0;
+		second = *a;
+		while(second != NULL)
 		{
-			if(segundo->value < no_atual->value)
-				contador++;
-			segundo = segundo->next;
+			if(second->value < current_node->value)
+				counting++;
+			second = second->next;
 			
 		}
-		no_atual->index = contador;
-		no_atual = no_atual->next;
+		current_node->index = counting;
+		current_node = current_node->next;
 	}
 }
 double  ft_chaos(const int *numbers, int len)

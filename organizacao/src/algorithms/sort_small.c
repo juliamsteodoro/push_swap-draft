@@ -16,24 +16,24 @@ int	ft_find_min_pos(t_stack **a)
 {
 	t_stack	*temp;
 	int		min;
-	int		position_atual;
-	int		position_menor;
+	int		pos_now;
+	int		pos_minor;
 
 	temp = *a;
-	position_atual = 0;
-	position_menor = 0;
+	pos_now = 0;
+	pos_minor = 0;
 	min = (*a)->value;
 	while (temp != NULL)
 	{
 		if ((temp)->value < min)
 		{
 			min = (temp)->value;
-			position_menor = position_atual;
+			pos_minor = pos_now;
 		}
 		temp = (temp)->next;
-		position_atual++;
+		pos_now++;
 	}
-	return (position_menor);
+	return (pos_minor);
 }
 
 void    sort_two(t_stack **a)

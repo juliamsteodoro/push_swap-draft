@@ -61,14 +61,14 @@ t_stack *ft_init_stack(t_stack **a, int *numbers, int len_numbers)
 void    ft_free_stack(t_stack **a)
 {
     t_stack *temp;
-    t_stack *atual;
+    t_stack *current;
     
     temp = *a;
     while(temp != NULL)
     {
-        atual = temp;
+        current = temp;
         temp = temp->next;
-        free(atual);
+        free(current);
     }
     *a = NULL;
 }
