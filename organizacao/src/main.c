@@ -29,14 +29,13 @@ static int	*popular_numbers(char **args, int start, int len)
 	return (numbers);
 }
 
-static void	run_sorting(t_stack **a, t_stack **b, int len, int *numbers, \
-						int strategy, t_bench *bench)
+static void	run_sorting(t_stack **a, t_stack **b, int strategy, t_bench *bench)
 {
 	double	chaos_inicial;
 
-	chaos_inicial = ft_chaos(numbers, len);
+	chaos_inicial = ft_chaos(*a);
 	ft_index_stack(a);
-	orchestration_sorting(a, b, len, numbers, strategy, bench);
+	orch_sorting(a, b, strategy, bench);
 	if (bench->bench_mode == 1)
 		print_bench_report(bench, chaos_inicial);
 }
@@ -84,7 +83,7 @@ static int	process_arguments(char **args, int start, int strat, t_bench *bench)
 	b = NULL;
 	if (!numbers || !ft_init_stack(&a, numbers, len))
 		return (free(numbers), 0);
-	run_sorting(&a, &b, len, numbers, strat, bench);
+	run_sorting(&a, &b, strat, bench);
 	return (free(numbers), ft_free_stack(&a), ft_free_stack(&b), 1);
 }
 

@@ -67,30 +67,29 @@ void	ft_index_stack(t_stack **a)
 		current_node = current_node->next;
 	}
 }
-
-double  ft_chaos(const int *numbers, int len)
+double	ft_chaos(t_stack *stack)
 {
-    int j;
-    int k;
-    int mistakes;
-    int total_pairs;
+	t_stack	*i;
+	t_stack	*j;
+	int		mistakes;
+	int		total_pairs;
 
-    k = 0;
-    mistakes = 0;
-    total_pairs = 0;
-    if (!numbers || len <= 1)
-        return (0.0);
-    while (k < len)
-    {
-        j = k + 1;
-        while (j < len)
-        {
-            total_pairs++;
-            if (numbers[k] > numbers[j])
-                mistakes++;
-            j++; 
-        }
-        k++;
-    }
-    return ((double)mistakes / total_pairs);
+	mistakes = 0;
+	total_pairs = 0;
+	i = stack;
+	while (i)
+	{
+		j = i->next;
+		while (j)
+		{
+			total_pairs++;
+			if (i->value > j->value)
+				mistakes++;
+			j = j->next;
+		}
+		i = i->next;
+	}
+	if (total_pairs == 0)
+		return (0.0);
+	return ((double)mistakes / total_pairs);
 }

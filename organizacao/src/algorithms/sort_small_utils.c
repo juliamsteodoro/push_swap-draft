@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_small_utils.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nde-mace <nde-mace@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jumoreir <jumoreir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/11 12:02:12 by nde-mace          #+#    #+#             */
-/*   Updated: 2026/07/11 12:02:41 by nde-mace         ###   ########.fr       */
+/*   Updated: 2026/07/11 18:20:09 by jumoreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,19 @@ int	ft_find_min_pos(t_stack **a)
 	}
 	return (pos_minor);
 }
-
-void	sort_three_case(t_stack **a, int n1, int n2, int n3, t_bench *bench)
+static void	get_three_values(t_stack **a, int *n1, int *n2, int *n3)
 {
+	*n1 = (*a)->value;
+	*n2 = (*a)->next->value;
+	*n3 = (*a)->next->next->value;
+}
+void	sort_three_case(t_stack **a, t_bench *bench)
+{
+	int n1;
+	int n2;
+	int n3;
+	
+	get_three_values(a, &n1, &n2, &n3);
 	if (n1 > n2 && n2 > n3)
 	{
 		sa(a, bench);

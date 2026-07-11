@@ -44,16 +44,10 @@ void    ft_sort_small(t_stack **a, t_stack **b, t_bench *bench)
 {
     sort_small(a, b, bench);
 }
+
 void    sort_three(t_stack **a, t_bench *bench)
 {
-    int n1;
-    int n2;
-    int n3;
-
     if (!a || !*a || !(*a)->next || !(*a)->next->next)
         return ;
-    n1 = (*a)->value;
-    n2 = (*a)->next->value;
-    n3 = (*a)->next->next->value;
-    sort_three_case(a, n1, n2, n3, bench);
+    sort_three_case(a, bench);
 }

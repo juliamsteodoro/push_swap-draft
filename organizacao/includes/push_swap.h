@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nde-mace <nde-mace@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jumoreir <jumoreir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/03 19:50:00 by nde-mace          #+#    #+#             */
-/*   Updated: 2026/07/11 12:51:42 by nde-mace         ###   ########.fr       */
+/*   Updated: 2026/07/11 18:13:18 by jumoreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ typedef struct s_bench
 #define STRATEGY_COMPLEX 3
 #define STRATEGY_ADAPTIVE 4
 
-int validate_arg(char **args, int start);
+int		validate_arg(char **args, int start);
 int		is_valid_format(char **args, int start);
 int		has_duplicates(char **args, int start);
 long	ft_atol(const char *str);
@@ -69,41 +69,44 @@ int		ft_stack_size(t_stack *a);
 int		ft_is_sorted(t_stack *a);
 void	ft_index_stack(t_stack **a);
 
-void    pa(t_stack **a, t_stack **b, t_bench *bench);
-void    pb(t_stack **a, t_stack **b, t_bench *bench);
+void	pa(t_stack **a, t_stack **b, t_bench *bench);
+void	pb(t_stack **a, t_stack **b, t_bench *bench);
 
-void    sa(t_stack **a, t_bench *bench);
-void    sb(t_stack **b, t_bench *bench);
-void    ss(t_stack **a, t_stack **b, t_bench *bench);
+void	sa(t_stack **a, t_bench *bench);
+void	sb(t_stack **b, t_bench *bench);
+void	ss(t_stack **a, t_stack **b, t_bench *bench);
 
-void    ra(t_stack **a, t_bench *bench);
-void    rb(t_stack **b, t_bench *bench);
-void    rr(t_stack **a, t_stack **b, t_bench *bench);
+void	ra(t_stack **a, t_bench *bench);
+void	rb(t_stack **b, t_bench *bench);
+void	rr(t_stack **a, t_stack **b, t_bench *bench);
 
-void    rra(t_stack **a, t_bench *bench);
-void    rrb(t_stack **b, t_bench *bench);
-void    rrr(t_stack **a, t_stack **b, t_bench *bench);
+void	rra(t_stack **a, t_bench *bench);
+void	rrb(t_stack **b, t_bench *bench);
+void	rrr(t_stack **a, t_stack **b, t_bench *bench);
 
-void    sort_two(t_stack **a, t_bench *bench);
-void    sort_three_case(t_stack **a, int n1, int n2, int n3, t_bench *bench);
-void    sort_three(t_stack **a, t_bench *bench);
-void    sort_small(t_stack **a, t_stack **b, t_bench *bench);
-void    sort_five(t_stack **a, t_stack **b, t_bench *bench);
-int     get_max_bits(t_stack *a);
-void    push_min_to_b(t_stack **a, t_stack **b, t_bench *bench);
-int     ft_find_min_pos(t_stack **a); 
-void    ft_radix_sort(t_stack **a, t_stack **b, t_bench *bench);
-void    orchestration_sorting(t_stack **a, t_stack **b, int len, int *numbers, int strategy, t_bench *bench);
-double  ft_chaos(const int *numbers, int len);
+void	sort_two(t_stack **a, t_bench *bench);
+void	sort_three_case(t_stack **a, t_bench *bench);
+void	sort_three(t_stack **a, t_bench *bench);
+void	sort_small(t_stack **a, t_stack **b, t_bench *bench);
+void	sort_five(t_stack **a, t_stack **b, t_bench *bench);
+int		get_max_bits(t_stack *a);
+void	push_min_to_b(t_stack **a, t_stack **b, t_bench *bench);
+int		ft_find_min_pos(t_stack **a);
+void	ft_radix_sort(t_stack **a, t_stack **b, t_bench *bench);
+void	orch_sorting(t_stack **a, t_stack **b, int strategy, t_bench *bench);
+double	ft_chaos(t_stack *stack);
 
-void    simple_strategy(t_stack **a, t_stack **b, t_bench *bench);
-void    medium_strategy(t_stack **a, t_stack **b, t_bench *bench);
-void    complex_strategy(t_stack **a, t_stack **b, t_bench *bench);
-void    adaptive_strategy(t_stack **a, t_stack **b, int len, int *numbers, t_bench *bench);
+void	simple_strategy(t_stack **a, t_stack **b, t_bench *bench);
+void	medium_strategy(t_stack **a, t_stack **b, t_bench *bench);
+void	complex_strategy(t_stack **a, t_stack **b, t_bench *bench);
+void	adaptive_strategy(t_stack **a, t_stack **b, t_bench *bench);
 void	init_bench(t_bench *bench);
-void    print_bench_report(t_bench *bench, double chaos);
+void	print_bench_report(t_bench *bench, double chaos);
 void	ft_dprintf(int fd, const char *format, ...);
 int		ft_strcmp(const char *s1, const char *s2);
-void    increment_op(t_bench *bench, char *op);
+void	increment_op(t_bench *bench, char *op);
 
 #endif
+
+//adaptive
+//orchestration
