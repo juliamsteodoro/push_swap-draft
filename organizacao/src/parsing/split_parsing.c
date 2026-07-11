@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   split_parsing.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nde-mace <nde-mace@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jumoreir <jumoreir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/11 12:24:54 by nde-mace          #+#    #+#             */
-/*   Updated: 2026/07/11 12:25:08 by nde-mace         ###   ########.fr       */
+/*   Updated: 2026/07/11 19:41:44 by jumoreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ static int	split_words(char **result, char const *s, char c)
 	{
 		if (s[i] != c && start < 0)
 			start = i;
-		else if ((s[i] == c || s[i + 1] == '\0') && start >= 0)
+		if ((s[i] == c || s[i + 1] == '\0') && start >= 0)
 		{
 			if (s[i] != c)
 				result[j++] = fill_word(s, start, i + 1);
@@ -90,12 +90,11 @@ static int	split_words(char **result, char const *s, char c)
 				return (free_split(result), 0);
 			start = -1;
 		}
-		i++;
-	}
+	i++;
+}
 	result[j] = NULL;
 	return (1);
 }
-
 char	**ft_split(char const *s, char c)
 {
 	char	**result;

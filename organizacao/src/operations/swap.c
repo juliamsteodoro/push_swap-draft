@@ -16,17 +16,19 @@ static void	swap_nodes(t_stack **stack)
 {
 	t_stack	*first;
 	t_stack	*second;
+	t_stack	*third;
 
 	if (!stack || !*stack || !(*stack)->next)
 		return ;
 	first = *stack;
 	second = first->next;
-	first->next = second->next;
-	if (second->next)
-		second->next->prev = first;
-	second->prev = first->prev;
+	third = second->next;
+	second->prev = NULL;
 	second->next = first;
 	first->prev = second;
+	first->next = third;
+	if (third)
+		third->prev = first;
 	*stack = second;
 }
 

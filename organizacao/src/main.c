@@ -46,7 +46,7 @@ static int	parse_flags(char **argv, int *strategy, t_bench *bench)
 
 	i = 1;
 	*strategy = STRATEGY_ADAPTIVE;
-	bench->is_adaptive = 1; // Padrão começa como adaptivo
+	bench->is_adaptive = 1;
 	while (argv[i] && argv[i][0] == '-')
 	{
 		if (ft_strcmp(argv[i], "--bench") == 0)
@@ -57,7 +57,7 @@ static int	parse_flags(char **argv, int *strategy, t_bench *bench)
 			(*strategy = STRATEGY_MEDIUM, bench->is_adaptive = 0);
 		else if (ft_strcmp(argv[i], "--complex") == 0)
 			(*strategy = STRATEGY_COMPLEX, bench->is_adaptive = 0);
-		else if (ft_strcmp(argv[i], "--adaptivo") == 0)
+		else if (ft_strcmp(argv[i], "--adaptive") == 0)
 			(*strategy = STRATEGY_ADAPTIVE, bench->is_adaptive = 1);
 		else
 			return (i);
@@ -86,7 +86,6 @@ static int	process_arguments(char **args, int start, int strat, t_bench *bench)
 	run_sorting(&a, &b, strat, bench);
 	return (free(numbers), ft_free_stack(&a), ft_free_stack(&b), 1);
 }
-
 int	main(int argc, char **argv)
 {
 	t_bench	bench;
@@ -99,13 +98,15 @@ int	main(int argc, char **argv)
 		return (0);
 	init_bench(&bench);
 	start = parse_flags(argv, &strategy, &bench);
+	bench.strategy = strategy;
 	if (argv[start] && argv[start + 1] == NULL && argc == start + 1)
 	{
 		split_args = ft_split(argv[start], ' ');
 		if (!split_args)
 			return (1);
 		success = process_arguments(split_args, 0, strategy, &bench);
-		return (free_split(split_args), !success);
+		free_split(split_args);
+		return (!success);
 	}
 	if (argc == start && bench.bench_mode == 1)
 		return (0);

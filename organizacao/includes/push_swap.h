@@ -6,7 +6,7 @@
 /*   By: jumoreir <jumoreir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/03 19:50:00 by nde-mace          #+#    #+#             */
-/*   Updated: 2026/07/11 18:13:18 by jumoreir         ###   ########.fr       */
+/*   Updated: 2026/07/11 19:22:07 by jumoreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdarg.h>
+# include <stdio.h>
 
 # define INT_MAX 2147483647
 # define INT_MIN -2147483648
