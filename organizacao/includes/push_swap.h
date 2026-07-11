@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jumoreir <jumoreir@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nde-mace <nde-mace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/03 19:50:00 by nde-mace          #+#    #+#             */
-/*   Updated: 2026/07/10 19:13:32 by jumoreir         ###   ########.fr       */
+/*   Updated: 2026/07/11 12:51:42 by nde-mace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <stdlib.h>
 # include <unistd.h>
+# include <stdarg.h>
 
 # define INT_MAX 2147483647
 # define INT_MIN -2147483648
@@ -26,6 +27,25 @@ typedef struct s_stack
 	struct s_stack	*next;
 	struct s_stack	*prev;
 }	t_stack;
+
+typedef struct s_bench
+{
+	int		bench_mode;
+	int		strategy;
+	int		is_adaptive;
+	int		total_ops;
+	int		sa_count;
+	int		sb_count;
+	int		ss_count;
+	int		pa_count;
+	int		pb_count;
+	int		ra_count;
+	int		rb_count;
+	int		rr_count;
+	int		rra_count;
+	int		rrb_count;
+	int		rrr_count;
+}	t_bench;
 
 #define STRATEGY_SIMPLE 1
 #define STRATEGY_MEDIUM 2
@@ -49,36 +69,41 @@ int		ft_stack_size(t_stack *a);
 int		ft_is_sorted(t_stack *a);
 void	ft_index_stack(t_stack **a);
 
-void	pa(t_stack **a, t_stack **b);
-void	pb(t_stack **a, t_stack **b);
+void    pa(t_stack **a, t_stack **b, t_bench *bench);
+void    pb(t_stack **a, t_stack **b, t_bench *bench);
 
-void	sa(t_stack **a);
-void	sb(t_stack **b);
-void	ss(t_stack **a, t_stack **b);
+void    sa(t_stack **a, t_bench *bench);
+void    sb(t_stack **b, t_bench *bench);
+void    ss(t_stack **a, t_stack **b, t_bench *bench);
 
-void	ra(t_stack **a);
-void	rb(t_stack **b);
-void	rr(t_stack **a, t_stack **b);
+void    ra(t_stack **a, t_bench *bench);
+void    rb(t_stack **b, t_bench *bench);
+void    rr(t_stack **a, t_stack **b, t_bench *bench);
 
-void	rra(t_stack **a);
-void	rrb(t_stack **b);
-void	rrr(t_stack **a, t_stack **b);
+void    rra(t_stack **a, t_bench *bench);
+void    rrb(t_stack **b, t_bench *bench);
+void    rrr(t_stack **a, t_stack **b, t_bench *bench);
 
-void	sort_two(t_stack **a);
-void	sort_three(t_stack **a);
-void	sort_small(t_stack **a, t_stack **b);
-void	sort_five(t_stack **a, t_stack **b);
-int 	get_max_bits(t_stack *a);
-void 	push_min_to_b(t_stack **a, t_stack **b);
-int		ft_find_min_pos(t_stack **a); 
-void    ft_radix_sort(t_stack **a, t_stack **b);
-void    orchestration_sorting(t_stack **a, t_stack **b, int len, int *numbers, int strategy);
+void    sort_two(t_stack **a, t_bench *bench);
+void    sort_three_case(t_stack **a, int n1, int n2, int n3, t_bench *bench);
+void    sort_three(t_stack **a, t_bench *bench);
+void    sort_small(t_stack **a, t_stack **b, t_bench *bench);
+void    sort_five(t_stack **a, t_stack **b, t_bench *bench);
+int     get_max_bits(t_stack *a);
+void    push_min_to_b(t_stack **a, t_stack **b, t_bench *bench);
+int     ft_find_min_pos(t_stack **a); 
+void    ft_radix_sort(t_stack **a, t_stack **b, t_bench *bench);
+void    orchestration_sorting(t_stack **a, t_stack **b, int len, int *numbers, int strategy, t_bench *bench);
 double  ft_chaos(const int *numbers, int len);
 
-void    simple_strategy(t_stack **a, t_stack **b);
-void    medium_strategy(t_stack **a, t_stack **b);
-void    complex_strategy(t_stack **a, t_stack **b);
-void    adaptive_strategy(t_stack **a, t_stack **b, int len, int *numbers);
-
+void    simple_strategy(t_stack **a, t_stack **b, t_bench *bench);
+void    medium_strategy(t_stack **a, t_stack **b, t_bench *bench);
+void    complex_strategy(t_stack **a, t_stack **b, t_bench *bench);
+void    adaptive_strategy(t_stack **a, t_stack **b, int len, int *numbers, t_bench *bench);
+void	init_bench(t_bench *bench);
+void    print_bench_report(t_bench *bench, double chaos);
+void	ft_dprintf(int fd, const char *format, ...);
+int		ft_strcmp(const char *s1, const char *s2);
+void    increment_op(t_bench *bench, char *op);
 
 #endif

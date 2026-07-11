@@ -67,6 +67,7 @@ void	ft_index_stack(t_stack **a)
 		current_node = current_node->next;
 	}
 }
+
 double  ft_chaos(const int *numbers, int len)
 {
     int j;

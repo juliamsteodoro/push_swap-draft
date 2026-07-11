@@ -12,7 +12,7 @@
 
 #include "../../includes/push_swap.h"
 
-void    ft_radix_sort(t_stack **a, t_stack **b)
+void    ft_radix_sort(t_stack **a, t_stack **b, t_bench *bench)
 {
     int max;
     int i;
@@ -26,13 +26,13 @@ void    ft_radix_sort(t_stack **a, t_stack **b)
         while(size > 0)
         {
             if (((*a)->index >> i) & 1)
-                ra(a);
+                ra(a, bench);
             else
-                pb(a,b);
+                pb(a, b, bench);
             size--;
         }
         while (*b)
-            pa(a, b);
+            pa(a, b, bench);
         i++;
     }
 }

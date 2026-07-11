@@ -30,21 +30,24 @@ static void	swap_nodes(t_stack **stack)
 	*stack = second;
 }
 
-void	sa(t_stack **a)
+void    sa(t_stack **a, t_bench *bench)
 {
-	swap_nodes(a);
-	write(1, "sa\n", 3);
+    swap_nodes(a);
+    write(1, "sa\n", 3);
+    increment_op(bench, "sa");
 }
 
-void	sb(t_stack **b)
+void    sb(t_stack **b, t_bench *bench)
 {
-	swap_nodes(b);
-	write(1, "sb\n", 3);
+    swap_nodes(b);
+    write(1, "sb\n", 3);
+    increment_op(bench, "sb");
 }
 
-void	ss(t_stack **a, t_stack **b)
+void    ss(t_stack **a, t_stack **b, t_bench *bench)
 {
-	swap_nodes(a);
-	swap_nodes(b);
-	write(1, "ss\n", 3);
+    swap_nodes(a);
+    swap_nodes(b);
+    write(1, "ss\n", 3);
+    increment_op(bench, "ss");
 }

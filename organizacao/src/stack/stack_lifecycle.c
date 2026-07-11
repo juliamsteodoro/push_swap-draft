@@ -45,7 +45,6 @@ t_stack *ft_init_stack(t_stack **a, int *numbers, int len_numbers)
     {
         *a = new_node;
         temp = *a;
-        
     }
     else
     {

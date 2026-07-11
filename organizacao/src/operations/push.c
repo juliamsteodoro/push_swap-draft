@@ -12,13 +12,13 @@
 
 #include "../../includes/push_swap.h"
 
-void	pa(t_stack **a, t_stack **b)
+void    pa(t_stack **a, t_stack **b, t_bench *bench)
 {
-	t_stack *first_b;
-	t_stack *first_a;
-	t_stack *second_b;
+    t_stack *first_b;
+    t_stack *first_a;
+    t_stack *second_b;
 
-	first_b = *b;
+    first_b = *b;
     if (!first_b)
         return;
     second_b = first_b->next;
@@ -33,15 +33,16 @@ void	pa(t_stack **a, t_stack **b)
     first_b->prev = NULL;
     *a = first_b;
     write(1, "pa\n", 3);
+    increment_op(bench, "pa");
 }
 
-void	pb(t_stack **a, t_stack **b)
+void    pb(t_stack **a, t_stack **b, t_bench *bench)
 {
-	t_stack *first_a;
-	t_stack *first_b;
-	t_stack *second_a;
+    t_stack *first_a;
+    t_stack *first_b;
+    t_stack *second_a;
 
-	first_a = *a;
+    first_a = *a;
     if (!first_a)
         return;
     second_a = first_a->next;
@@ -56,5 +57,5 @@ void	pb(t_stack **a, t_stack **b)
     first_a->prev = NULL;
     *b = first_a;
     write(1, "pb\n", 3);
-
+    increment_op(bench, "pb");
 }
