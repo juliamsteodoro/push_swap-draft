@@ -30,24 +30,24 @@ static void	rotate_stack(t_stack **stack)
 	first->next = NULL;
 }
 
-void    ra(t_stack **a, t_bench *bench)
+void	ra(t_stack **a, t_bench *bench)
 {
-    rotate_stack(a);
-    write(1, "ra\n", 3);
-    increment_op(bench, "ra");
+	rotate_stack(a);
+	write(1, "ra\n", 3);
+	increment_op(bench, "ra");
 }
 
-void    rb(t_stack **b, t_bench *bench)
+void	rb(t_stack **b, t_bench *bench)
 {
-    rotate_stack(b);
-    write(1, "rb\n", 3);
-    increment_op(bench, "rb");
+	rotate_stack(b);
+	write(1, "rb\n", 3);
+	increment_op(bench, "rb");
 }
 
-void    rr(t_stack **a, t_stack **b, t_bench *bench)
+void	rr(t_stack **a, t_stack **b, t_bench *bench)
 {
-    rotate_stack(a);
-    rotate_stack(b);
-    write(1, "rr\n", 3);
-    increment_op(bench, "rr");
+	rotate_stack(a);
+	rotate_stack(b);
+	write(1, "rr\n", 3);
+	increment_op(bench, "rr");
 }

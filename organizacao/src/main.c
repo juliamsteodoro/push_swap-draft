@@ -1,13 +1,13 @@
 /* ************************************************************************** */
-/* */
-/* :::      ::::::::   */
-/* main.c                                             :+:      :+:    :+:   */
-/* +:+ +:+         +:+     */
-/* By: nde-mace <nde-mace@student.42.fr>          +#+  +:+       +#+        */
-/* +#+#+#+#+#+   +#+           */
-/* Created: 2026/07/11 12:06:57 by nde-mace          #+#    #+#             */
-/* Updated: 2026/07/11 12:42:00 by nde-mace         ###   ########.fr       */
-/* */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jumoreir <jumoreir@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/07/13 13:46:57 by jumoreir          #+#    #+#             */
+/*   Updated: 2026/07/13 14:12:53 by jumoreir         ###   ########.fr       */
+/*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
@@ -29,63 +29,6 @@ static int	*popular_numbers(char **args, int start, int len)
 	return (numbers);
 }
 
-static void	run_sorting(t_stack **a, t_stack **b, int strategy, t_bench *bench)
-{
-	double	chaos_inicial;
-
-	chaos_inicial = ft_chaos(*a);
-	ft_index_stack(a);
-	orch_sorting(a, b, strategy, bench);
-	if (bench->bench_mode == 1)
-		print_bench_report(bench, chaos_inicial);
-}
-
-static int	parse_flags(char **argv, int *strategy, t_bench *bench)
-{
-	int	i;
-
-	i = 1;
-	*strategy = STRATEGY_ADAPTIVE;
-	bench->is_adaptive = 1;
-	while (argv[i] && argv[i][0] == '-')
-	{
-		if (ft_strcmp(argv[i], "--bench") == 0)
-			bench->bench_mode = 1;
-		else if (ft_strcmp(argv[i], "--simple") == 0)
-			(*strategy = STRATEGY_SIMPLE, bench->is_adaptive = 0);
-		else if (ft_strcmp(argv[i], "--medium") == 0)
-			(*strategy = STRATEGY_MEDIUM, bench->is_adaptive = 0);
-		else if (ft_strcmp(argv[i], "--complex") == 0)
-			(*strategy = STRATEGY_COMPLEX, bench->is_adaptive = 0);
-		else if (ft_strcmp(argv[i], "--adaptive") == 0)
-			(*strategy = STRATEGY_ADAPTIVE, bench->is_adaptive = 1);
-		else
-			return (i);
-		i++;
-	}
-	return (i);
-}
-static int	process_arguments(char **args, int start, int strat, t_bench *bench)
-{
-	t_stack	*a;
-	t_stack	*b;
-	int		*numbers;
-	int		len;
-
-	int i = 0;
-	while (args[i])
-		i++;
-	len = i - start;
-	if (len <= 0 || !validate_arg(args, start))
-		return (ft_error(), 0);
-	numbers = popular_numbers(args, start, len);
-	a = NULL;
-	b = NULL;
-	if (!numbers || !ft_init_stack(&a, numbers, len))
-		return (free(numbers), 0);
-	run_sorting(&a, &b, strat, bench);
-	return (free(numbers), ft_free_stack(&a), ft_free_stack(&b), 1);
-}
 int	main(int argc, char **argv)
 {
 	t_bench	bench;

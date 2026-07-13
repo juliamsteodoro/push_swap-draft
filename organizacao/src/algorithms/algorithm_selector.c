@@ -6,7 +6,7 @@
 /*   By: jumoreir <jumoreir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/04 13:02:40 by nde-mace          #+#    #+#             */
-/*   Updated: 2026/07/11 18:43:32 by jumoreir         ###   ########.fr       */
+/*   Updated: 2026/07/13 13:03:56 by jumoreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	adaptive_strategy(t_stack **a, t_stack **b, t_bench *bench)
 {
 	double	taxa_chaos;
 	int		len;
-	
+
 	len = ft_stack_size(*a);
 	if (ft_is_sorted(*a))
 		return ;

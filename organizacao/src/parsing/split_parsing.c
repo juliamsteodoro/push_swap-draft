@@ -6,7 +6,7 @@
 /*   By: jumoreir <jumoreir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/11 12:24:54 by nde-mace          #+#    #+#             */
-/*   Updated: 2026/07/11 19:41:44 by jumoreir         ###   ########.fr       */
+/*   Updated: 2026/07/13 13:27:16 by jumoreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,10 +91,11 @@ static int	split_words(char **result, char const *s, char c)
 			start = -1;
 		}
 	i++;
-}
+	}
 	result[j] = NULL;
 	return (1);
 }
+
 char	**ft_split(char const *s, char c)
 {
 	char	**result;

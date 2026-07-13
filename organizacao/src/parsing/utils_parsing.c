@@ -12,34 +12,34 @@
 
 #include "../../includes/push_swap.h"
 
-void    ft_error(void)
+void	ft_error(void)
 {
 	write(2, "Error\n", 6);
 }
 
-long    ft_atol(const char *str)
+long	ft_atol(const char *str)
 {
-    long sign;
-    long result;
-    int i;
+	long	sign;
+	long	result;
+	int		i;
 
-    sign = 1;
-    result = 0;
-    i = 0;
-    while (str[i] == ' ' || (str[i] >= '\t' && str[i] <= '\r'))
-        i++;
-    if (str[i] == '+' || str[i] == '-')
-    {
-        if (str[i] == '-')
-            sign *= -1;
-        i++;
-    }
-    while (str[i]>= '0' && str[i] <= '9')
-    {
-        result = (result * 10) + (str[i] - '0');
-        if (result > 2147483648L) 
-            return (result * sign);
-        i++;
-    }
-    return(result * sign);
+	sign = 1;
+	result = 0;
+	i = 0;
+	while (str[i] == ' ' || (str[i] >= '\t' && str[i] <= '\r'))
+		i++;
+	if (str[i] == '+' || str[i] == '-')
+	{
+		if (str[i] == '-')
+			sign *= -1;
+		i++;
+	}
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		result = (result * 10) + (str[i] - '0');
+		if (result > 2147483648L)
+			return (result * sign);
+		i++;
+	}
+	return (result * sign);
 }
