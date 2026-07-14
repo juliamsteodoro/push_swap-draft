@@ -22,7 +22,7 @@ void	ft_radix_sort(t_stack **a, t_stack **b, t_bench *bench)
 	i = 0;
 	while (i < max)
 	{
-		if (ft_is_sorted(*a) && ft_stack_size(*b) == 0)
+		if (ft_is_sorted(*a) && !*b)
 			break ;
 		size = ft_stack_size(*a);
 		while (size--)

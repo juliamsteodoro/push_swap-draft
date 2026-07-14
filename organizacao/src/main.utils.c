@@ -6,7 +6,7 @@
 /*   By: jumoreir <jumoreir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/13 14:00:12 by jumoreir          #+#    #+#             */
-/*   Updated: 2026/07/13 23:13:08 by jumoreir         ###   ########.fr       */
+/*   Updated: 2026/07/13 23:20:36 by jumoreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,13 @@ int	process_arguments(char **args, int start, int strat, t_bench *bench)
 	a = NULL;
 	b = NULL;
 	if (!numbers || !ft_init_stack(&a, numbers, len))
-		return (free(numbers), 0);
+	{
+		free(numbers);
+		return (0);
+	}
 	run_sorting(&a, &b, strat, bench);
-	return (free(numbers), ft_free_stack(&a), ft_free_stack(&b), 1);
+	ft_free_stack(&a);
+	ft_free_stack(&b);
+	free(numbers);
+	return (1);
 }
