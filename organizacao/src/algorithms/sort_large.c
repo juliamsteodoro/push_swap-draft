@@ -22,14 +22,15 @@ void	ft_radix_sort(t_stack **a, t_stack **b, t_bench *bench)
 	i = 0;
 	while (i < max)
 	{
+		if (ft_is_sorted(*a) && ft_stack_size(*b) == 0)
+			break ;
 		size = ft_stack_size(*a);
-		while (size > 0)
+		while (size--)
 		{
 			if (((*a)->index >> i) & 1)
 				ra(a, bench);
 			else
 				pb(a, b, bench);
-			size--;
 		}
 		while (*b)
 			pa(a, b, bench);

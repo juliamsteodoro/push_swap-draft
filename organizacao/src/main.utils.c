@@ -6,13 +6,13 @@
 /*   By: jumoreir <jumoreir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/13 14:00:12 by jumoreir          #+#    #+#             */
-/*   Updated: 2026/07/13 14:11:32 by jumoreir         ###   ########.fr       */
+/*   Updated: 2026/07/13 23:13:08 by jumoreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-static void	run_sorting(t_stack **a, t_stack **b, int strategy, t_bench *bench)
+void	run_sorting(t_stack **a, t_stack **b, int strategy, t_bench *bench)
 {
 	double	chaos_inicial;
 
@@ -23,7 +23,7 @@ static void	run_sorting(t_stack **a, t_stack **b, int strategy, t_bench *bench)
 		print_bench_report(bench, chaos_inicial);
 }
 
-static void	set_strategy(int *strategy, t_bench *bench, int type)
+void	set_strategy(int *strategy, t_bench *bench, int type)
 {
 	*strategy = type;
 	if (type == STRATEGY_ADAPTIVE)
@@ -32,7 +32,7 @@ static void	set_strategy(int *strategy, t_bench *bench, int type)
 		bench->is_adaptive = 0;
 }
 
-static int	parse_flags(char **argv, int *strategy, t_bench *bench)
+int	parse_flags(char **argv, int *strategy, t_bench *bench)
 {
 	int	i;
 
@@ -57,7 +57,7 @@ static int	parse_flags(char **argv, int *strategy, t_bench *bench)
 	return (i);
 }
 
-static int	process_arguments(char **args, int start, int strat, t_bench *bench)
+int	process_arguments(char **args, int start, int strat, t_bench *bench)
 {
 	t_stack	*a;
 	t_stack	*b;

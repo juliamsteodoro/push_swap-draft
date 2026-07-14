@@ -319,3 +319,10 @@ Suporte na modelagem do fluxo de validação de argumentos, tratamento de offset
 ## Estruturação da Documentação
 
 Auxílio na elaboração da documentação técnica e da justificativa teórica das estratégias assintóticas implementadas.
+
+## Contribuições
+
+Algorithms: Simples e Médio (Nathalia), Complexo (Julia), Adaptativo (Nathalia e Julia)
+Operations: Nathalia e Julia
+Parsing: Nathalia
+Stack: Julia

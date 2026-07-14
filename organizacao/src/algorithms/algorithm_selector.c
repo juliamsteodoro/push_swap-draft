@@ -6,7 +6,7 @@
 /*   By: jumoreir <jumoreir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/04 13:02:40 by nde-mace          #+#    #+#             */
-/*   Updated: 2026/07/13 13:03:56 by jumoreir         ###   ########.fr       */
+/*   Updated: 2026/07/13 23:11:13 by jumoreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,28 @@
 
 void	simple_strategy(t_stack **a, t_stack **b, t_bench *bench)
 {
+	t_stack	*temp;
+	int		min;
+
 	if (!a || !*a)
 		return ;
 	bench->strategy = STRATEGY_SIMPLE;
-	sort_small(a, b, bench);
+	while (ft_stack_size(*a) > 0)
+	{
+		temp = *a;
+		min = temp->index;
+		while (temp)
+		{
+			if (temp->index < min)
+				min = temp->index;
+			temp = temp->next;
+		}
+		while ((*a)->index != min)
+			ra(a, bench);
+		pb(a, b, bench);
+	}
+	while (*b)
+		pa(a, b, bench);
 }
 
 void	medium_strategy(t_stack **a, t_stack **b, t_bench *bench)

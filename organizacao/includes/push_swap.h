@@ -6,7 +6,7 @@
 /*   By: jumoreir <jumoreir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/03 19:50:00 by nde-mace          #+#    #+#             */
-/*   Updated: 2026/07/11 19:22:07 by jumoreir         ###   ########.fr       */
+/*   Updated: 2026/07/13 23:01:17 by jumoreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,10 +48,10 @@ typedef struct s_bench
 	int		rrr_count;
 }	t_bench;
 
-#define STRATEGY_SIMPLE 1
-#define STRATEGY_MEDIUM 2
-#define STRATEGY_COMPLEX 3
-#define STRATEGY_ADAPTIVE 4
+# define STRATEGY_SIMPLE 1
+# define STRATEGY_MEDIUM 2
+# define STRATEGY_COMPLEX 3
+# define STRATEGY_ADAPTIVE 4
 
 int		validate_arg(char **args, int start);
 int		is_valid_format(char **args, int start);
@@ -107,7 +107,10 @@ void	ft_dprintf(int fd, const char *format, ...);
 int		ft_strcmp(const char *s1, const char *s2);
 void	increment_op(t_bench *bench, char *op);
 
-#endif
+int		*popular_numbers(char **args, int start, int len);
+void	run_sorting(t_stack **a, t_stack **b, int strategy, t_bench *bench);
+void	set_strategy(int *strategy, t_bench *bench, int type);
+int		parse_flags(char **argv, int *strategy, t_bench *bench);
+int		process_arguments(char **args, int start, int strat, t_bench *bench);
 
-//adaptive
-//orchestration
+#endif
