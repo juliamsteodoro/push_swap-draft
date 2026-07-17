@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "push_swap.h"
 
 int	ft_stack_size(t_stack *a)
 {
@@ -46,7 +46,7 @@ int	ft_is_sorted(t_stack *a)
 }
 
 void	ft_index_stack(t_stack **a)
-{	
+{
 	t_stack	*current_node;
 	t_stack	*second;
 	int		counting;

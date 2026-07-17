@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   sort_small_utils.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jumoreir <jumoreir@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/11 12:02:12 by nde-mace          #+#    #+#             */
-/*   Updated: 2026/07/13 13:12:21 by jumoreir         ###   ########.fr       */
+/*   Updated: 2026/07/16 22:43:32 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "push_swap.h"
 
 int	ft_find_min_pos(t_stack **a)
 {

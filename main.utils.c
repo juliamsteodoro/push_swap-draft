@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   main.utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jumoreir <jumoreir@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/13 14:00:12 by jumoreir          #+#    #+#             */
-/*   Updated: 2026/07/13 23:20:36 by jumoreir         ###   ########.fr       */
+/*   Updated: 2026/07/16 22:44:23 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "push_swap.h"
 
 void	run_sorting(t_stack **a, t_stack **b, int strategy, t_bench *bench)
 {

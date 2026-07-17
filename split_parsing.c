@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   split_parsing.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jumoreir <jumoreir@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/11 12:24:54 by nde-mace          #+#    #+#             */
-/*   Updated: 2026/07/13 13:27:16 by jumoreir         ###   ########.fr       */
+/*   Updated: 2026/07/16 22:43:23 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "push_swap.h"
 
 void	free_split(char **args)
 {
@@ -90,7 +90,7 @@ static int	split_words(char **result, char const *s, char c)
 				return (free_split(result), 0);
 			start = -1;
 		}
-	i++;
+		i++;
 	}
 	result[j] = NULL;
 	return (1);

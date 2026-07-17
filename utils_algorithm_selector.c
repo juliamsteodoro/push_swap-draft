@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   utils_algorithm_selector.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jumoreir <jumoreir@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/11 11:55:26 by nde-mace          #+#    #+#             */
-/*   Updated: 2026/07/13 13:15:09 by jumoreir         ###   ########.fr       */
+/*   Updated: 2026/07/16 22:43:07 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "push_swap.h"
 
 void	push_min_to_b(t_stack **a, t_stack **b, t_bench *bench)
 {

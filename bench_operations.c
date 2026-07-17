@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   bench_operations.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jumoreir <jumoreir@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/13 13:04:40 by jumoreir          #+#    #+#             */
-/*   Updated: 2026/07/13 13:06:49 by jumoreir         ###   ########.fr       */
+/*   Updated: 2026/07/16 22:44:37 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "push_swap.h"
 
 void	init_bench(t_bench *bench)
 {
@@ -39,7 +39,7 @@ void	increment_op(t_bench *bench, char *op)
 	if (ft_strcmp(op, "sa") == 0)
 		bench->sa_count++;
 	else if (ft_strcmp(op, "sb") == 0)
-	bench->sb_count++;
+		bench->sb_count++;
 	else if (ft_strcmp(op, "ss") == 0)
 		bench->ss_count++;
 	else if (ft_strcmp(op, "pa") == 0)
